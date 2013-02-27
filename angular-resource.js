@@ -386,8 +386,8 @@ angular.module('ngResource', ['ng']).
             method: action.method,
             url: route.url(extend({}, extractParams(data, action.params || {}), params)),
             data: data,
-            transformRequest: action.transformRequest || noop,
-            transformResponse: action.transformResponse || noop
+            transformRequest: action.transformRequest || $http.defaults.transformRequest,
+            transformResponse: action.transformResponse || $http.defaults.transformResponse
           }).then(function(response) {
               var data = response.data;
 
